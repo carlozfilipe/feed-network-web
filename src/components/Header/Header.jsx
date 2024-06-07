@@ -1,6 +1,6 @@
 import styles from './Header.module.css';
 
-import feedLogo from '../assets/feed-logo.svg';
+import feedLogo from '../../assets/feed-logo.svg';
 
 export function Header() {
   return (

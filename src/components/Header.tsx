@@ -8,5 +8,5 @@ export function Header() {
       <img src={feedLogo} alt="Logotipo do Feed Network" />
       <h2>Feed Network</h2>
     </header>
-  )
+  );
 }

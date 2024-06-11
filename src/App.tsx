@@ -1,4 +1,4 @@
-import { Post } from './components/Post';
+import { Post, PostType } from './components/Post';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 
@@ -9,18 +9,22 @@ import './global.css';
 // publishedAt: Date
 // content: String
 
-const posts = [
+const posts: PostType[] = [
   {
     id: 1,
     author: {
       avatarUrl: 'https://github.com/carlozfilipe.png',
       name: 'Carlos Filipe',
-      role: 'Software Developer'
+      role: 'Software Developer',
     },
     content: [
       { type: 'paragraph', content: 'Fala, galera!' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portfólio. O nome do projeto é Feed Network. 🔥' },
-      { type: 'link', content: 'https://feed-network.netlify.app' }
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portfólio. O nome do projeto é Feed Network. 🔥',
+      },
+      { type: 'link', content: 'https://feed-network.netlify.app' },
     ],
     publishedAt: new Date(),
   },
@@ -29,16 +33,19 @@ const posts = [
     author: {
       avatarUrl: 'https://github.com/ry.png',
       name: 'Ryan Dahl',
-      role: 'NodeJS creator'
+      role: 'NodeJS creator',
     },
     content: [
       { type: 'paragraph', content: 'Hi, guys!' },
-      { type: 'paragraph', content: 'I just created a project called Deno. 🚀' },
-      { type: 'link', content: 'https://deno.com' }
+      {
+        type: 'paragraph',
+        content: 'I just created a project called Deno. 🚀',
+      },
+      { type: 'link', content: 'https://deno.com' },
     ],
     publishedAt: new Date('2024-06-08 12:00:00'),
-  }
-]
+  },
+];
 
 export function App() {
   return (
@@ -49,15 +56,8 @@ export function App() {
         <Sidebar />
 
         <main>
-          {posts.map( post => {
-            return (
-              <Post 
-                key={post.id}
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
-              />
-          )
+          {posts.map((post) => {
+            return <Post key={post.id} post={post} />;
           })}
         </main>
       </div>
